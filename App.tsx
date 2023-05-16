@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Dimensions, Platform } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Overlay } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import { PERMISSIONS, request } from 'react-native-permissions';
 
-
-
 const { width, height } = Dimensions.get('window');
+
 function App(): JSX.Element {
   const [initialLocation, setInitialLocation] = useState({ latitude: 0, longitude: 0 });
 
@@ -44,18 +43,27 @@ function App(): JSX.Element {
       {initialLocation && (
         <MapView
           style={styles.map}
-          showsUserLocation={true}
+          showsUserLocation
           userLocationPriority="high"
-          showsMyLocationButton={true}
-          userLocationCalloutEnabled={true}
-          followsUserLocation={true}
+          mapType='mutedStandard'
+          showsMyLocationButton
+          userLocationCalloutEnabled
+          followsUserLocation
           region={{
             latitude: initialLocation.latitude,
             longitude: initialLocation.longitude,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
-        />
+        >
+          <Overlay
+            image={require('./src/images/edc_map.jpeg')}
+            bounds={[
+              [initialLocation.latitude - 0.01, initialLocation.longitude - 0.01],
+              [initialLocation.latitude + 0.01, initialLocation.longitude + 0.01],
+            ]}
+          />
+        </MapView>
       )}
     </View>
   );
