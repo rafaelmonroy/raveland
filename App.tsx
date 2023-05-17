@@ -40,31 +40,32 @@ function App(): JSX.Element {
 
   return (
     <View style={styles.container}>
-      {initialLocation && (
-        <MapView
-          style={styles.map}
-          showsUserLocation
-          userLocationPriority="high"
-          mapType='mutedStandard'
-          showsMyLocationButton
-          userLocationCalloutEnabled
-          followsUserLocation
-          region={{
-            latitude: initialLocation.latitude,
-            longitude: initialLocation.longitude,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121,
-          }}
-        >
-          <Overlay
-            image={require('./src/images/edc_map.jpeg')}
-            bounds={[
-              [initialLocation.latitude - 0.01, initialLocation.longitude - 0.01],
-              [initialLocation.latitude + 0.01, initialLocation.longitude + 0.01],
-            ]}
-          />
-        </MapView>
-      )}
+
+      <MapView
+        style={styles.map}
+        showsUserLocation
+        userLocationPriority="high"
+        mapType='mutedStandard'
+        showsMyLocationButton
+        userLocationCalloutEnabled
+        // followsUserLocation
+        userInterfaceStyle='dark'
+        region={{
+          latitude: 36.272100,
+          longitude: -115.011000,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        }}
+      >
+        <Overlay
+          image={require('./src/images/edc_map.png')}
+          bounds={[
+            [36.267946, -115.016941],
+            [36.277146, -115.004826],
+          ]}
+        />
+      </MapView>
+
     </View>
   );
 }
