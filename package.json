@@ -7,14 +7,18 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "permissions": "react-native setup-ios-permissions",
+    "install-pods": "cd ios && pod install",
+    "remove-pods": "cd ios && pod deintegrate"
   },
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.8",
     "react-native-geolocation-service": "^5.3.1",
     "react-native-maps": "^1.7.1",
-    "react-native-permissions": "^3.8.0"
+    "react-native-permissions": "^3.8.0",
+    "react-native-sensors": "^7.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
