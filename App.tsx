@@ -48,7 +48,6 @@ function App(): JSX.Element {
         mapType='mutedStandard'
         showsMyLocationButton
         userLocationCalloutEnabled
-        // followsUserLocation
         userInterfaceStyle='dark'
         region={{
           latitude: 36.272100,
